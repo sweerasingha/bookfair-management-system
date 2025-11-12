@@ -3,6 +3,7 @@ package com.ruh.bms.service;
 import com.ruh.bms.dto.AuthResponse;
 import com.ruh.bms.dto.LoginRequest;
 import com.ruh.bms.dto.RegisterRequest;
+import com.ruh.bms.exception.BadRequestException;
 import com.ruh.bms.model.User;
 import com.ruh.bms.repository.UserRepository;
 import com.ruh.bms.security.JwtTokenProvider;
@@ -71,7 +72,7 @@ public class AuthService {
 
         User user = userRepository.findByUsername(request.getUsernameOrEmail())
                 .orElseGet(() -> userRepository.findByEmail(request.getUsernameOrEmail())
-                        .orElseThrow(() -> new RuntimeException("User not found")));
+                        .orElseThrow(() -> new BadRequestException("User not found")));
 
         log.info("User logged in successfully: {}", user.getUsername());
 
