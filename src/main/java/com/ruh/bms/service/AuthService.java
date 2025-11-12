@@ -15,6 +15,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -26,14 +27,15 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
     private final JwtTokenProvider tokenProvider;
 
+    @Transactional
     public AuthResponse register(RegisterRequest request) {
 
         if (userRepository.existsByUsername(request.getUsername())) {
-            throw new RuntimeException("Username is already taken");
+            throw new BadRequestException("Username is already taken");
         }
 
         if (userRepository.existsByEmail(request.getEmail())) {
-            throw new RuntimeException("Email is already in use");
+            throw new BadRequestException("Email is already in use");
         }
 
         User user = User.builder()
@@ -72,7 +74,7 @@ public class AuthService {
 
         User user = userRepository.findByUsername(request.getUsernameOrEmail())
                 .orElseGet(() -> userRepository.findByEmail(request.getUsernameOrEmail())
-                        .orElseThrow(() -> new BadRequestException("User not found")));
+                        .orElseThrow(() -> new BadRequestException("User not found"))); //need to add
 
         log.info("User logged in successfully: {}", user.getUsername());
 
