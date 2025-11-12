@@ -1,6 +1,7 @@
 package com.ruh.bms.service;
 
 import com.ruh.bms.dto.AuthResponse;
+import com.ruh.bms.dto.LoginRequest;
 import com.ruh.bms.dto.RegisterRequest;
 import com.ruh.bms.model.User;
 import com.ruh.bms.repository.UserRepository;
@@ -56,6 +57,23 @@ public class AuthService {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String jwt = tokenProvider.generateToken(authentication);
+
+        return new AuthResponse(jwt, user.getId(), user.getUsername(), user.getEmail(), user.getFullName(), user.getRole().name());
+    }
+
+    public AuthResponse login(LoginRequest request) {
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(request.getUsernameOrEmail(), request.getPassword())
+        );
+
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        String jwt = tokenProvider.generateToken(authentication);
+
+        User user = userRepository.findByUsername(request.getUsernameOrEmail())
+                .orElseGet(() -> userRepository.findByEmail(request.getUsernameOrEmail())
+                        .orElseThrow(() -> new RuntimeException("User not found")));
+
+        log.info("User logged in successfully: {}", user.getUsername());
 
         return new AuthResponse(jwt, user.getId(), user.getUsername(), user.getEmail(), user.getFullName(), user.getRole().name());
     }

@@ -2,6 +2,7 @@ package com.ruh.bms.controller;
 
 import com.ruh.bms.dto.ApiResponse;
 import com.ruh.bms.dto.AuthResponse;
+import com.ruh.bms.dto.LoginRequest;
 import com.ruh.bms.dto.RegisterRequest;
 import com.ruh.bms.service.AuthService;
 import jakarta.validation.Valid;
@@ -27,6 +28,14 @@ public class AuthController {
         return new ResponseEntity<>(
                 new ApiResponse(true, "User registered successfully", authResponse),
                 HttpStatus.CREATED
+        );
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<ApiResponse> login(@Valid @RequestBody LoginRequest request) {
+        AuthResponse authResponse = authService.login(request);
+        return ResponseEntity.ok(
+                new ApiResponse(true, "Login successful", authResponse)
         );
     }
 }
