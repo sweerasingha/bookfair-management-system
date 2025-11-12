@@ -5,11 +5,13 @@ import com.ruh.bms.dto.RegisterRequest;
 import com.ruh.bms.model.User;
 import com.ruh.bms.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class AuthService {
 
     private final UserRepository userRepository;
@@ -37,6 +39,8 @@ public class AuthService {
                 .build();
 
         userRepository.save(user);
+
+        log.info("User registered successfully: {}", user.getUsername());
 
         return new AuthResponse("JWT", user.getId(), user.getUsername(), user.getEmail(), user.getFullName(), user.getRole().name());
     }
