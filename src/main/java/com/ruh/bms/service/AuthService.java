@@ -4,12 +4,16 @@ import com.ruh.bms.dto.AuthResponse;
 import com.ruh.bms.dto.RegisterRequest;
 import com.ruh.bms.model.User;
 import com.ruh.bms.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
+@Service
+@RequiredArgsConstructor
 public class AuthService {
 
-    private UserRepository userRepository;
-    private PasswordEncoder passwordEncoder;
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public AuthResponse register(RegisterRequest request) {
 
