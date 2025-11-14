@@ -1,24 +1,30 @@
 package com.ruh.bms.dto;
 
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ReservationRequest {
+public class ReservationResponse {
 
-    @NotNull(message = "Event ID is required")
+    private Long id;
+    private String reservationCode;
+    private String qrCode;
+    private String status;
+    private Long userId;
+    private String userName;
     private Long eventId;
-
-    @NotNull(message = "Stall ID is required")
+    private String eventName;
     private Long stallId;
-
-    private Set<Long> genreIds;
+    private String stallNumber;
+    private Set<String> genres;
+    private LocalDateTime createdAt;
+    private LocalDateTime confirmedAt;
 }
