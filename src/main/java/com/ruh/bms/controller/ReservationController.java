@@ -87,4 +87,13 @@ public class ReservationController {
                 new ApiResponse(true, "Genres updated successfully", reservation)
         );
     }
+    @PostMapping("/check-in")
+    @PreAuthorize("hasAnyRole('ORGANIZER', 'EMPLOYEE')")
+    public ResponseEntity<ApiResponse> checkInReservation(@RequestParam String reservationCode) {
+        reservationService.checkInReservation(reservationCode);
+        return ResponseEntity.ok(
+                new ApiResponse(true, "Reservation checked in successfully")
+        );
+    }
+}
 
