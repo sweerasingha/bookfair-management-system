@@ -34,3 +34,11 @@ public class ReservationController {
                 HttpStatus.CREATED
         );
     }
+
+    @GetMapping("/my-reservations")
+    public ResponseEntity<ApiResponse> getMyReservations(@AuthenticationPrincipal UserPrincipal currentUser) {
+        List<ReservationResponse> reservations = reservationService.getUserReservations(currentUser.getId());
+        return ResponseEntity.ok(
+                new ApiResponse(true, "Reservations retrieved successfully", reservations)
+        );
+    }
