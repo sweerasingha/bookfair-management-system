@@ -50,3 +50,18 @@ public class ReservationController {
                 new ApiResponse(true, "Event reservations retrieved successfully", reservations)
         );
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<ApiResponse> getReservationById(@PathVariable Long id) {
+        ReservationResponse reservation = reservationService.getReservationById(id);
+        return ResponseEntity.ok(
+                new ApiResponse(true, "Reservation retrieved successfully", reservation)
+        );
+    }
+
+    @GetMapping("/code/{code}")
+    public ResponseEntity<ApiResponse> getReservationByCode(@PathVariable String code) {
+        ReservationResponse reservation = reservationService.getReservationByCode(code);
+        return ResponseEntity.ok(
+                new ApiResponse(true, "Reservation retrieved successfully", reservation)
+        );
+    }
