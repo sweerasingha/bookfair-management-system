@@ -65,3 +65,26 @@ public class ReservationController {
                 new ApiResponse(true, "Reservation retrieved successfully", reservation)
         );
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ApiResponse> cancelReservation(
+            @PathVariable Long id,
+            @AuthenticationPrincipal UserPrincipal currentUser) {
+        reservationService.cancelReservation(id, currentUser.getId());
+        return ResponseEntity.ok(
+                new ApiResponse(true, "Reservation cancelled successfully")
+        );
+    }
+
+    @PutMapping("/{id}/genres")
+    @PreAuthorize("hasAnyRole('VENDOR', 'PUBLISHER')")
+    public ResponseEntity<ApiResponse> updateReservationGenres(
+            @PathVariable Long id,
+            @AuthenticationPrincipal UserPrincipal currentUser,
+            @Valid @RequestBody UpdateGenresRequest request) {
+        ReservationResponse reservation = reservationService.updateReservationGenres(
+                id, currentUser.getId(), request.getGenreIds());
+        return ResponseEntity.ok(
+                new ApiResponse(true, "Genres updated successfully", reservation)
+        );
+    }
+
