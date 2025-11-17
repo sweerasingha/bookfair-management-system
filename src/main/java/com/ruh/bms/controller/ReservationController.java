@@ -42,3 +42,11 @@ public class ReservationController {
                 new ApiResponse(true, "Reservations retrieved successfully", reservations)
         );
     }
+    @GetMapping("/event/{eventId}")
+    @PreAuthorize("hasAnyRole('ORGANIZER', 'EMPLOYEE')")
+    public ResponseEntity<ApiResponse> getEventReservations(@PathVariable Long eventId) {
+        List<ReservationResponse> reservations = reservationService.getEventReservations(eventId);
+        return ResponseEntity.ok(
+                new ApiResponse(true, "Event reservations retrieved successfully", reservations)
+        );
+    }
