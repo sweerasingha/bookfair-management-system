@@ -85,6 +85,9 @@ public class ReservationController {
             @Valid @RequestBody UpdateGenresRequest request) {
         ReservationResponse reservation = reservationService.updateReservationGenres(
                 id, currentUser.getId(), request.getGenreIds());
+        log.info("Reservation genres updated. ReservationId={}, ReservationCode={}, UserId={}, Genres={}",
+                reservation.getId(), reservation.getReservationCode(), reservation.getUserId(), reservation.getGenres());
+
         return ResponseEntity.ok(
                 new ApiResponse(true, "Genres updated successfully", reservation)
         );
