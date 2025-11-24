@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  #  bms-backend:
+  #    build: .
+  #    container_name: bms-backend
+  #    ports:
+  #      - "4000:4000"
+  #    env_file:
+  #      - .env
+  #    depends_on:
+  #      - db
+  #    networks:
+  #      - backend-network
+  #    restart: on-failure
+
+  db:
+    image: postgres:latest
+    container_name: bms-db
+    environment:
+        POSTGRES_USER: admin-user
+        POSTGRES_PASSWORD: password
+        POSTGRES_DB: bmsDB
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - backend-network
+
+volumes:
+  pgdata:
+
+networks:
+  backend-network:
+    driver: bridge
