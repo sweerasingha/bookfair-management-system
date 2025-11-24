@@ -18,11 +18,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class StallController {
 
-    private final StallService stallService;
+    private final StallService stallServiceImpl;
 
     @GetMapping("/event/{eventId}")
     public ResponseEntity<ApiResponse> getStallsByEvent(@PathVariable Long eventId) {
-        List<StallResponse> stalls = stallService.getStallsByEvent(eventId);
+        List<StallResponse> stalls = stallServiceImpl.getStallsByEvent(eventId);
         return ResponseEntity.ok(
                 new ApiResponse(true, "Stalls retrieved successfully", stalls)
         );
@@ -30,7 +30,7 @@ public class StallController {
 
     @GetMapping("/event/{eventId}/available")
     public ResponseEntity<ApiResponse> getAvailableStallsByEvent(@PathVariable Long eventId) {
-        List<StallResponse> stalls = stallService.getAvailableStallsByEvent(eventId);
+        List<StallResponse> stalls = stallServiceImpl.getAvailableStallsByEvent(eventId);
         return ResponseEntity.ok(
                 new ApiResponse(true, "Available stalls retrieved successfully", stalls)
         );
@@ -38,7 +38,7 @@ public class StallController {
 
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse> getStallById(@PathVariable Long id) {
-        StallResponse stall = stallService.getStallById(id);
+        StallResponse stall = stallServiceImpl.getStallById(id);
         return ResponseEntity.ok(
                 new ApiResponse(true, "Stall retrieved successfully", stall)
         );
@@ -47,7 +47,7 @@ public class StallController {
     @PostMapping
     @PreAuthorize("hasAnyRole('ORGANIZER')")
     public ResponseEntity<ApiResponse> createStall(@Valid @RequestBody Stall stall) {
-        StallResponse createdStall = stallService.createStall(stall);
+        StallResponse createdStall = stallServiceImpl.createStall(stall);
         return new ResponseEntity<>(
                 new ApiResponse(true, "Stall created successfully", createdStall),
                 HttpStatus.CREATED
@@ -57,7 +57,7 @@ public class StallController {
     @PutMapping("/{id}")
     @PreAuthorize("hasAnyRole('ORGANIZER')")
     public ResponseEntity<ApiResponse> updateStall(@PathVariable Long id, @Valid @RequestBody Stall stall) {
-        StallResponse updatedStall = stallService.updateStall(id, stall);
+        StallResponse updatedStall = stallServiceImpl.updateStall(id, stall);
         return ResponseEntity.ok(
                 new ApiResponse(true, "Stall updated successfully", updatedStall)
         );
@@ -66,7 +66,7 @@ public class StallController {
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole('ORGANIZER')")
     public ResponseEntity<ApiResponse> deleteStall(@PathVariable Long id) {
-        stallService.deleteStall(id);
+        stallServiceImpl.deleteStall(id);
         return ResponseEntity.ok(
                 new ApiResponse(true, "Stall deleted successfully")
         );

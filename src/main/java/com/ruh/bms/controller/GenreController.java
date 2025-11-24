@@ -17,11 +17,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class GenreController {
 
-    private final GenreService genreService;
+    private final GenreService genreServiceImpl;
 
     @GetMapping
     public ResponseEntity<ApiResponse> getAllGenres() {
-        List<Genre> genres = genreService.getAllGenres();
+        List<Genre> genres = genreServiceImpl.getAllGenres();
         return ResponseEntity.ok(
                 new ApiResponse(true, "Genres retrieved successfully", genres)
         );
@@ -29,7 +29,7 @@ public class GenreController {
 
     @GetMapping("/active")
     public ResponseEntity<ApiResponse> getActiveGenres() {
-        List<Genre> genres = genreService.getActiveGenres();
+        List<Genre> genres = genreServiceImpl.getActiveGenres();
         return ResponseEntity.ok(
                 new ApiResponse(true, "Active genres retrieved successfully", genres)
         );
@@ -37,7 +37,7 @@ public class GenreController {
 
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse> getGenreById(@PathVariable Long id) {
-        Genre genre = genreService.getGenreById(id);
+        Genre genre = genreServiceImpl.getGenreById(id);
         return ResponseEntity.ok(
                 new ApiResponse(true, "Genre retrieved successfully", genre)
         );
@@ -46,7 +46,7 @@ public class GenreController {
     @PostMapping
     @PreAuthorize("hasAnyRole('ORGANIZER', 'EMPLOYEE')")
     public ResponseEntity<ApiResponse> createGenre(@Valid @RequestBody Genre genre) {
-        Genre createdGenre = genreService.createGenre(genre);
+        Genre createdGenre = genreServiceImpl.createGenre(genre);
         return new ResponseEntity<>(
                 new ApiResponse(true, "Genre created successfully", createdGenre),
                 HttpStatus.CREATED
@@ -56,7 +56,7 @@ public class GenreController {
     @PutMapping("/{id}")
     @PreAuthorize("hasAnyRole('ORGANIZER', 'EMPLOYEE')")
     public ResponseEntity<ApiResponse> updateGenre(@PathVariable Long id, @Valid @RequestBody Genre genre) {
-        Genre updatedGenre = genreService.updateGenre(id, genre);
+        Genre updatedGenre = genreServiceImpl.updateGenre(id, genre);
         return ResponseEntity.ok(
                 new ApiResponse(true, "Genre updated successfully", updatedGenre)
         );
@@ -65,7 +65,7 @@ public class GenreController {
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole('ORGANIZER', 'EMPLOYEE')")
     public ResponseEntity<ApiResponse> deleteGenre(@PathVariable Long id) {
-        genreService.deleteGenre(id);
+        genreServiceImpl.deleteGenre(id);
         return ResponseEntity.ok(
                 new ApiResponse(true, "Genre deleted successfully")
         );
