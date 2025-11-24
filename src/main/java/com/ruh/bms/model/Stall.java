@@ -1,70 +1,62 @@
 package com.ruh.bms.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 import lombok.*;
-
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "users", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "email"),
-        @UniqueConstraint(columnNames = "username")
+@Table(name = "stalls", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"event_id", "stall_number"})
 })
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class User {
+public class Stall {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank
-    @Size(max = 50)
-    @Column(nullable = false, unique = true)
-    private String username;
-
-    @NotBlank
-    @Email
-    @Size(max = 100)
-    @Column(nullable = false, unique = true)
-    private String email;
-
-    @NotBlank
-    @Size(min = 6)
-    @Column(nullable = false)
-    private String password;
-
-    @NotBlank
-    @Size(max = 100)
-    @Column(nullable = false)
-    private String fullName;
-
     @Size(max = 20)
-    private String phoneNumber;
+    @Column(nullable = false)
+    private String stallNumber;
 
-    @Size(max = 200)
-    private String companyName;
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "event_id", nullable = false)
+    @ToString.Exclude
+    private Event event;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private UserRole role;
+    private StallSize size;
+
+    @NotNull
+    @Positive
+    @Column(nullable = false, precision = 10, scale = 2)
+    private BigDecimal pricePerStall;
 
     @Column(nullable = false)
     @Builder.Default
-    private Boolean enabled = true;
+    private Boolean available = true;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Size(max = 100)
+    private String location;
+
+    @OneToMany(mappedBy = "stall", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @Builder.Default
     @ToString.Exclude
     private Set<Reservation> reservations = new HashSet<>();
@@ -77,9 +69,10 @@ public class User {
     @Column(nullable = false)
     private LocalDateTime updatedAt;
 
-    public enum UserRole {
-        VENDOR,
-        PUBLISHER,
-        ORGANIZER
+    public enum StallSize {
+        SMALL,
+        MEDIUM,
+        LARGE,
+        EXTRA_LARGE
     }
 }
