@@ -8,6 +8,7 @@ import com.ruh.bms.security.UserPrincipal;
 import com.ruh.bms.service.ReservationService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -19,6 +20,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/reservations")
 @RequiredArgsConstructor
+@Slf4j
 public class ReservationController {
 
     private final ReservationService reservationService;
@@ -83,6 +85,9 @@ public class ReservationController {
             @Valid @RequestBody UpdateGenresRequest request) {
         ReservationResponse reservation = reservationService.updateReservationGenres(
                 id, currentUser.getId(), request.getGenreIds());
+        log.info("Reservation genres updated. ReservationId={}, ReservationCode={}, UserId={}, Genres={}",
+                reservation.getId(), reservation.getReservationCode(), reservation.getUserId(), reservation.getGenres());
+
         return ResponseEntity.ok(
                 new ApiResponse(true, "Genres updated successfully", reservation)
         );
@@ -91,6 +96,7 @@ public class ReservationController {
     @PreAuthorize("hasAnyRole('ORGANIZER')")
     public ResponseEntity<ApiResponse> checkInReservation(@RequestParam String reservationCode) {
         reservationService.checkInReservation(reservationCode);
+        log.info("Reservation checked in successfully. ReservationCode={}", reservationCode);
         return ResponseEntity.ok(
                 new ApiResponse(true, "Reservation checked in successfully")
         );
