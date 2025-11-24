@@ -89,7 +89,6 @@ public class StallService {
         return StallResponse.builder()
                 .id(stall.getId())
                 .stallNumber(stall.getStallNumber())
-                .hallNumber(stall.getHallNumber())
                 .eventId(stall.getEvent().getId())
                 .size(stall.getSize().name())
                 .pricePerStall(stall.getPricePerStall())
@@ -97,12 +96,11 @@ public class StallService {
                 .location(stall.getLocation())
                 .build();
     }
-
+    
     private StallResponse mapToResponseWithEventId(Stall stall, Long eventId) {
         return StallResponse.builder()
                 .id(stall.getId())
                 .stallNumber(stall.getStallNumber())
-                .hallNumber(stall.getHallNumber())
                 .eventId(eventId)
                 .size(stall.getSize().name())
                 .pricePerStall(stall.getPricePerStall())

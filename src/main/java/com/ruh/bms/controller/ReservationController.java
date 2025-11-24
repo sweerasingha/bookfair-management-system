@@ -43,7 +43,7 @@ public class ReservationController {
         );
     }
     @GetMapping("/event/{eventId}")
-    @PreAuthorize("hasAnyRole('ORGANIZER', 'EMPLOYEE')")
+    @PreAuthorize("hasAnyRole('ORGANIZER')")
     public ResponseEntity<ApiResponse> getEventReservations(@PathVariable Long eventId) {
         List<ReservationResponse> reservations = reservationService.getEventReservations(eventId);
         return ResponseEntity.ok(
@@ -88,7 +88,7 @@ public class ReservationController {
         );
     }
     @PostMapping("/check-in")
-    @PreAuthorize("hasAnyRole('ORGANIZER', 'EMPLOYEE')")
+    @PreAuthorize("hasAnyRole('ORGANIZER')")
     public ResponseEntity<ApiResponse> checkInReservation(@RequestParam String reservationCode) {
         reservationService.checkInReservation(reservationCode);
         return ResponseEntity.ok(

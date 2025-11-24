@@ -5,15 +5,18 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;
+
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "users", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "username"),
-        @UniqueConstraint(columnNames = "email")
+        @UniqueConstraint(columnNames = "email"),
+        @UniqueConstraint(columnNames = "username")
 })
 @Getter
 @Setter
@@ -47,11 +50,10 @@ public class User {
     @Column(nullable = false)
     private String fullName;
 
-    @NotBlank
-    @Size(max = 15)
+    @Size(max = 20)
     private String phoneNumber;
 
-    @Size(max = 100)
+    @Size(max = 200)
     private String companyName;
 
     @Enumerated(EnumType.STRING)
@@ -61,6 +63,11 @@ public class User {
     @Column(nullable = false)
     @Builder.Default
     private Boolean enabled = true;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Builder.Default
+    @ToString.Exclude
+    private Set<Reservation> reservations = new HashSet<>();
 
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
