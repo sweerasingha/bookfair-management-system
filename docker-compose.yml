@@ -1,6 +1,18 @@
 version: '3.8'
 
 services:
+  #  bms-backend:
+  #    build: .
+  #    container_name: bms-backend
+  #    ports:
+  #      - "4000:4000"
+  #    env_file:
+  #      - .env
+  #    depends_on:
+  #      - db
+  #    networks:
+  #      - backend-network
+  #    restart: on-failure
 
   db:
     image: postgres:latest

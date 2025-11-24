@@ -2429,3 +2429,124 @@ Caused by: org.hibernate.HibernateException: Unable to determine Dialect without
 2025-11-24T15:06:51.638+05:30 DEBUG 19088 --- [http-nio-4000-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, */*] and supported [application/json]
 2025-11-24T15:06:51.644+05:30 DEBUG 19088 --- [http-nio-4000-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [{123, 34, 111, 112, 101, 110, 97, 112, 105, 34, 58, 34, 51, 46, 49, 46, 48, 34, 44, 34, 105, 110, 10 (truncated)...]
 2025-11-24T15:06:51.645+05:30 DEBUG 19088 --- [http-nio-4000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-11-24T15:28:06.930+05:30  INFO 19088 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-24T15:28:06.953+05:30  INFO 19088 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-11-24T15:28:06.965+05:30  INFO 19088 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-24T15:28:06.971+05:30  INFO 19088 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-24T15:28:06.976+05:30  INFO 19088 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-24T15:28:15.551+05:30  INFO 14656 --- [restartedMain] com.ruh.bms.BmsApplication               : Starting BmsApplication using Java 24.0.2 with PID 14656 (D:\projects\bookfair-management-system\target\classes started by Shenith Bandara in D:\projects\bookfair-management-system)
+2025-11-24T15:28:15.554+05:30 DEBUG 14656 --- [restartedMain] com.ruh.bms.BmsApplication               : Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-11-24T15:28:15.556+05:30  INFO 14656 --- [restartedMain] com.ruh.bms.BmsApplication               : No active profile set, falling back to 1 default profile: "default"
+2025-11-24T15:28:15.655+05:30  INFO 14656 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-11-24T15:28:15.656+05:30  INFO 14656 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-11-24T15:28:17.925+05:30  INFO 14656 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-24T15:28:18.057+05:30  INFO 14656 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 116 ms. Found 5 JPA repository interfaces.
+2025-11-24T15:28:19.186+05:30  INFO 14656 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 4000 (http)
+2025-11-24T15:28:19.207+05:30  INFO 14656 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-24T15:28:19.207+05:30  INFO 14656 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-11-24T15:28:19.299+05:30  INFO 14656 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-24T15:28:19.299+05:30  INFO 14656 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3642 ms
+2025-11-24T15:28:19.940+05:30  INFO 14656 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-24T15:28:20.217+05:30  INFO 14656 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-11-24T15:28:20.314+05:30  INFO 14656 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-24T15:28:20.851+05:30  INFO 14656 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-24T15:28:20.909+05:30  INFO 14656 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-24T15:28:21.207+05:30  INFO 14656 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@18fb126d
+2025-11-24T15:28:21.209+05:30  INFO 14656 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-24T15:28:21.337+05:30  INFO 14656 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-24T15:28:22.863+05:30  INFO 14656 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-24T15:28:23.051+05:30  INFO 14656 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-24T15:28:23.580+05:30 DEBUG 14656 --- [restartedMain] c.r.b.security.JwtAuthenticationFilter   : Filter 'jwtAuthenticationFilter' configured for use
+2025-11-24T15:28:23.582+05:30 DEBUG 14656 --- [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2025-11-24T15:28:23.583+05:30 DEBUG 14656 --- [restartedMain] o.s.w.s.r.ResourceUrlEncodingFilter      : Filter 'resourceUrlEncodingFilter' configured for use
+2025-11-24T15:28:23.727+05:30  INFO 14656 --- [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-11-24T15:28:23.728+05:30  WARN 14656 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-11-24T15:28:23.853+05:30  INFO 14656 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-24T15:28:24.845+05:30  WARN 14656 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-11-24T15:28:25.073+05:30  WARN 14656 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-24T15:28:25.261+05:30 DEBUG 14656 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 36 mappings in 'requestMappingHandlerMapping'
+2025-11-24T15:28:25.334+05:30 DEBUG 14656 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-11-24T15:28:25.502+05:30  INFO 14656 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-11-24T15:28:25.673+05:30 DEBUG 14656 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, JwtAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-11-24T15:28:25.797+05:30 DEBUG 14656 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-11-24T15:28:25.864+05:30 DEBUG 14656 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-11-24T15:28:26.272+05:30  INFO 14656 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-11-24T15:28:26.401+05:30  INFO 14656 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 4000 (http) with context path '/'
+2025-11-24T15:28:26.422+05:30  INFO 14656 --- [restartedMain] com.ruh.bms.BmsApplication               : Started BmsApplication in 11.763 seconds (process running for 12.94)
+2025-11-24T15:28:26.532+05:30  WARN 14656 --- [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2025-11-24T15:28:26.533+05:30  WARN 14656 --- [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2025-11-24T15:28:35.271+05:30  INFO 14656 --- [http-nio-4000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-24T15:28:35.272+05:30  INFO 14656 --- [http-nio-4000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-24T15:28:35.272+05:30 DEBUG 14656 --- [http-nio-4000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2025-11-24T15:28:35.272+05:30 DEBUG 14656 --- [http-nio-4000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2025-11-24T15:28:35.272+05:30 DEBUG 14656 --- [http-nio-4000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2025-11-24T15:28:35.273+05:30 DEBUG 14656 --- [http-nio-4000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7b4944c3
+2025-11-24T15:28:35.274+05:30 DEBUG 14656 --- [http-nio-4000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@2efc8630
+2025-11-24T15:28:35.274+05:30 DEBUG 14656 --- [http-nio-4000-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-11-24T15:28:35.274+05:30  INFO 14656 --- [http-nio-4000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-11-24T15:28:35.305+05:30 DEBUG 14656 --- [http-nio-4000-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/index.html
+2025-11-24T15:28:35.319+05:30 DEBUG 14656 --- [http-nio-4000-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-11-24T15:28:35.325+05:30 DEBUG 14656 --- [http-nio-4000-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/index.html
+2025-11-24T15:28:35.328+05:30 DEBUG 14656 --- [http-nio-4000-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/index.html", parameters={}
+2025-11-24T15:28:35.331+05:30 DEBUG 14656 --- [http-nio-4000-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2025-11-24T15:28:35.359+05:30 DEBUG 14656 --- [http-nio-4000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-11-24T15:28:35.443+05:30 DEBUG 14656 --- [http-nio-4000-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/swagger-ui.css
+2025-11-24T15:28:35.444+05:30 DEBUG 14656 --- [http-nio-4000-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-11-24T15:28:35.447+05:30 DEBUG 14656 --- [http-nio-4000-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/swagger-ui.css
+2025-11-24T15:28:35.447+05:30 DEBUG 14656 --- [http-nio-4000-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-ui.css", parameters={}
+2025-11-24T15:28:35.449+05:30 DEBUG 14656 --- [http-nio-4000-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2025-11-24T15:28:35.455+05:30 DEBUG 14656 --- [http-nio-4000-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/index.css
+2025-11-24T15:28:35.455+05:30 DEBUG 14656 --- [http-nio-4000-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/swagger-initializer.js
+2025-11-24T15:28:35.457+05:30 DEBUG 14656 --- [http-nio-4000-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-11-24T15:28:35.457+05:30 DEBUG 14656 --- [http-nio-4000-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-11-24T15:28:35.458+05:30 DEBUG 14656 --- [http-nio-4000-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/index.css
+2025-11-24T15:28:35.458+05:30 DEBUG 14656 --- [http-nio-4000-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/swagger-initializer.js
+2025-11-24T15:28:35.458+05:30 DEBUG 14656 --- [http-nio-4000-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/index.css", parameters={}
+2025-11-24T15:28:35.460+05:30 DEBUG 14656 --- [http-nio-4000-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-initializer.js", parameters={}
+2025-11-24T15:28:35.460+05:30 DEBUG 14656 --- [http-nio-4000-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/swagger-ui-bundle.js
+2025-11-24T15:28:35.460+05:30 DEBUG 14656 --- [http-nio-4000-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2025-11-24T15:28:35.461+05:30 DEBUG 14656 --- [http-nio-4000-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2025-11-24T15:28:35.461+05:30 DEBUG 14656 --- [http-nio-4000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-11-24T15:28:35.462+05:30 DEBUG 14656 --- [http-nio-4000-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-11-24T15:28:35.464+05:30 DEBUG 14656 --- [http-nio-4000-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/swagger-ui-bundle.js
+2025-11-24T15:28:35.464+05:30 DEBUG 14656 --- [http-nio-4000-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-ui-bundle.js", parameters={}
+2025-11-24T15:28:35.465+05:30 DEBUG 14656 --- [http-nio-4000-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-11-24T15:28:35.465+05:30 DEBUG 14656 --- [http-nio-4000-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-11-24T15:28:35.466+05:30 DEBUG 14656 --- [http-nio-4000-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2025-11-24T15:28:35.469+05:30 DEBUG 14656 --- [http-nio-4000-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-11-24T15:28:35.470+05:30 DEBUG 14656 --- [http-nio-4000-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-11-24T15:28:35.470+05:30 DEBUG 14656 --- [http-nio-4000-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-ui-standalone-preset.js", parameters={}
+2025-11-24T15:28:35.472+05:30 DEBUG 14656 --- [http-nio-4000-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2025-11-24T15:28:35.492+05:30 DEBUG 14656 --- [http-nio-4000-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-11-24T15:28:35.543+05:30 DEBUG 14656 --- [http-nio-4000-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-11-24T15:28:35.556+05:30 DEBUG 14656 --- [http-nio-4000-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-11-24T15:28:35.879+05:30 DEBUG 14656 --- [http-nio-4000-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /v3/api-docs/swagger-config
+2025-11-24T15:28:35.882+05:30 DEBUG 14656 --- [http-nio-4000-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-11-24T15:28:35.884+05:30 DEBUG 14656 --- [http-nio-4000-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /v3/api-docs/swagger-config
+2025-11-24T15:28:35.884+05:30 DEBUG 14656 --- [http-nio-4000-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/v3/api-docs/swagger-config", parameters={}
+2025-11-24T15:28:35.885+05:30 DEBUG 14656 --- [http-nio-4000-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerConfigResource#openapiJson(HttpServletRequest)
+2025-11-24T15:28:35.919+05:30 DEBUG 14656 --- [http-nio-4000-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json]
+2025-11-24T15:28:35.948+05:30 DEBUG 14656 --- [http-nio-4000-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/favicon-32x32.png
+2025-11-24T15:28:35.950+05:30 DEBUG 14656 --- [http-nio-4000-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-11-24T15:28:35.952+05:30 DEBUG 14656 --- [http-nio-4000-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/favicon-32x32.png
+2025-11-24T15:28:35.952+05:30 DEBUG 14656 --- [http-nio-4000-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/favicon-32x32.png", parameters={}
+2025-11-24T15:28:35.954+05:30 DEBUG 14656 --- [http-nio-4000-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2025-11-24T15:28:35.960+05:30 DEBUG 14656 --- [http-nio-4000-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-11-24T15:28:35.960+05:30 DEBUG 14656 --- [http-nio-4000-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [{configUrl=/v3/api-docs/swagger-config, oauth2RedirectUrl=http://localhost:4000/swagger-ui/oauth2-re (truncated)...]
+2025-11-24T15:28:35.972+05:30 DEBUG 14656 --- [http-nio-4000-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-11-24T15:28:35.994+05:30 DEBUG 14656 --- [http-nio-4000-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /v3/api-docs
+2025-11-24T15:28:35.994+05:30 DEBUG 14656 --- [http-nio-4000-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-11-24T15:28:35.996+05:30 DEBUG 14656 --- [http-nio-4000-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /v3/api-docs
+2025-11-24T15:28:35.996+05:30 DEBUG 14656 --- [http-nio-4000-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/v3/api-docs", parameters={}
+2025-11-24T15:28:35.996+05:30 DEBUG 14656 --- [http-nio-4000-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.api.OpenApiWebMvcResource#openapiJson(HttpServletRequest, String, Locale)
+2025-11-24T15:28:36.970+05:30  INFO 14656 --- [http-nio-4000-exec-9] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 951 ms
+2025-11-24T15:28:37.010+05:30 DEBUG 14656 --- [http-nio-4000-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, */*] and supported [application/json]
+2025-11-24T15:28:37.019+05:30 DEBUG 14656 --- [http-nio-4000-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [{123, 34, 111, 112, 101, 110, 97, 112, 105, 34, 58, 34, 51, 46, 49, 46, 48, 34, 44, 34, 105, 110, 10 (truncated)...]
+2025-11-24T15:28:37.021+05:30 DEBUG 14656 --- [http-nio-4000-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
