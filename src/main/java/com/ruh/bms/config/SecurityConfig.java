@@ -6,6 +6,7 @@ import com.ruh.bms.security.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -41,7 +42,8 @@ public class SecurityConfig {
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider provider = new DaoAuthenticationProvider(customUserDetailsService);
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+        provider.setUserDetailsService(customUserDetailsService);
         provider.setPasswordEncoder(passwordEncoder());
         return provider;
     }
@@ -59,10 +61,34 @@ public class SecurityConfig {
                 .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**","/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                        // Public endpoints
+                        .requestMatchers("/api/auth/**", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/events/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/genres/**").permitAll()
+
+                        // Vendor / Publisher / Organizer / Employee endpoints
+                        .requestMatchers("/api/reservations/**")
+                        .hasAnyRole("VENDOR", "PUBLISHER", "ORGANIZER", "EMPLOYEE")
+                        .requestMatchers(HttpMethod.GET, "/api/stalls/**")
+                        .hasAnyRole("VENDOR", "PUBLISHER", "ORGANIZER", "EMPLOYEE")
+
+                        // Organizer-only endpoints
+                        .requestMatchers(HttpMethod.POST, "/api/events/**").hasRole("ORGANIZER")
+                        .requestMatchers(HttpMethod.PUT, "/api/events/**").hasRole("ORGANIZER")
+                        .requestMatchers(HttpMethod.DELETE, "/api/events/**").hasRole("ORGANIZER")
+
+                        .requestMatchers(HttpMethod.POST, "/api/stalls/**").hasRole("ORGANIZER")
+                        .requestMatchers(HttpMethod.PUT, "/api/stalls/**").hasRole("ORGANIZER")
+                        .requestMatchers(HttpMethod.DELETE, "/api/stalls/**").hasRole("ORGANIZER")
+
+                        .requestMatchers(HttpMethod.POST, "/api/genres/**").hasRole("ORGANIZER")
+                        .requestMatchers(HttpMethod.PUT, "/api/genres/**").hasRole("ORGANIZER")
+                        .requestMatchers(HttpMethod.DELETE, "/api/genres/**").hasRole("ORGANIZER")
+
+                        // Any other endpoints require authentication
                         .anyRequest().authenticated()
-                )
-        ;
+                );
+
         http.authenticationProvider(authenticationProvider());
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
