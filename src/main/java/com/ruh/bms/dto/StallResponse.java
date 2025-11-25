@@ -15,6 +15,7 @@ public class StallResponse {
 
     private Long id;
     private String stallNumber;
+    private String hallNumber;
     private Long eventId;
     private String size;
     private BigDecimal pricePerStall;

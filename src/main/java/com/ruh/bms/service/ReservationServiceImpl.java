@@ -273,6 +273,7 @@ public class ReservationServiceImpl implements ReservationService {
                 .eventName(reservation.getEvent().getName())
                 .stallId(reservation.getStall().getId())
                 .stallNumber(reservation.getStall().getStallNumber())
+                .hallNumber(reservation.getStall().getHallNumber())
                 .genres(genreNames)
                 .createdAt(reservation.getCreatedAt())
                 .confirmedAt(reservation.getConfirmedAt())

@@ -95,6 +95,7 @@ public class StallServiceImpl implements StallService {
         return StallResponse.builder()
                 .id(stall.getId())
                 .stallNumber(stall.getStallNumber())
+                .hallNumber(stall.getHallNumber())
                 .eventId(stall.getEvent().getId())
                 .size(stall.getSize().name())
                 .pricePerStall(stall.getPricePerStall())
