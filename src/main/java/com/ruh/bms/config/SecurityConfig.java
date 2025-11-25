@@ -67,8 +67,8 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/events/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/genres/**").permitAll()
                         // Vendor/Publisher endpoints
-                        .requestMatchers("/api/reservations/**").hasAnyRole("VENDOR", "PUBLISHER", "ORGANIZER")
-                        .requestMatchers(HttpMethod.GET, "/api/stalls/**").hasAnyRole("VENDOR", "PUBLISHER", "ORGANIZER")
+                        .requestMatchers("/api/reservations/**").hasAnyRole("VENDOR", "PUBLISHER", "ORGANIZER", "EMPLOYEE")
+                        .requestMatchers(HttpMethod.GET, "/api/stalls/**").hasAnyRole("VENDOR", "PUBLISHER", "ORGANIZER", "EMPLOYEE")
                         // Organizer/Employee endpoints
                         .requestMatchers(HttpMethod.POST, "/api/events/**").hasAnyRole("ORGANIZER")
                         .requestMatchers(HttpMethod.PUT, "/api/events/**").hasAnyRole("ORGANIZER")
