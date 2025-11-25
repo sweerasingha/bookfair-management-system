@@ -1,0 +1,50 @@
+2025-11-25T17:36:05.322+05:30  INFO 30012 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-11-25T17:36:05.324+05:30  INFO 30012 --- [Thread-19] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-25T17:36:05.437+05:30  INFO 30012 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-11-25T17:36:05.439+05:30  INFO 30012 --- [Thread-19] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-25T17:36:05.440+05:30  INFO 30012 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2025-11-25T17:36:05.442+05:30  INFO 30012 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2025-11-25T17:36:05.530+05:30  INFO 30012 --- [restartedMain] com.ruh.bms.BmsApplication               : Starting BmsApplication using Java 17.0.16 with PID 30012 (E:\University\Semester 08\EE8208 - Software Architecture\Bookfair Management System\bms\target\classes started by Sachitha in E:\University\Semester 08\EE8208 - Software Architecture\Bookfair Management System\bms)
+2025-11-25T17:36:05.531+05:30 DEBUG 30012 --- [restartedMain] com.ruh.bms.BmsApplication               : Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-11-25T17:36:05.531+05:30  INFO 30012 --- [restartedMain] com.ruh.bms.BmsApplication               : No active profile set, falling back to 1 default profile: "default"
+2025-11-25T17:36:05.808+05:30  INFO 30012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-25T17:36:05.827+05:30  INFO 30012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 5 JPA repository interfaces.
+2025-11-25T17:36:05.945+05:30  INFO 30012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-11-25T17:36:05.946+05:30  INFO 30012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-25T17:36:05.947+05:30  INFO 30012 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-11-25T17:36:05.962+05:30  INFO 30012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-25T17:36:05.963+05:30  INFO 30012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 430 ms
+2025-11-25T17:36:06.041+05:30  INFO 30012 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-25T17:36:06.044+05:30  INFO 30012 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-25T17:36:06.050+05:30  INFO 30012 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-25T17:36:06.051+05:30  INFO 30012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2025-11-25T17:36:06.098+05:30  INFO 30012 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection org.postgresql.jdbc.PgConnection@2df2f4a6
+2025-11-25T17:36:06.099+05:30  INFO 30012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2025-11-25T17:36:06.109+05:30  INFO 30012 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-6)']
+	Database driver: undefined/unknown
+	Database version: 18.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-25T17:36:06.197+05:30  INFO 30012 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-25T17:36:06.264+05:30  INFO 30012 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-25T17:36:06.341+05:30 DEBUG 30012 --- [restartedMain] c.r.b.security.JwtAuthenticationFilter   : Filter 'jwtAuthenticationFilter' configured for use
+2025-11-25T17:36:06.342+05:30 DEBUG 30012 --- [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2025-11-25T17:36:06.342+05:30 DEBUG 30012 --- [restartedMain] o.s.w.s.r.ResourceUrlEncodingFilter      : Filter 'resourceUrlEncodingFilter' configured for use
+2025-11-25T17:36:06.374+05:30  INFO 30012 --- [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-11-25T17:36:06.375+05:30  WARN 30012 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-11-25T17:36:06.539+05:30  WARN 30012 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-25T17:36:06.568+05:30 DEBUG 30012 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 37 mappings in 'requestMappingHandlerMapping'
+2025-11-25T17:36:06.591+05:30 DEBUG 30012 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-11-25T17:36:06.650+05:30  INFO 30012 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-11-25T17:36:06.722+05:30 DEBUG 30012 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, JwtAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-11-25T17:36:06.770+05:30 DEBUG 30012 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-11-25T17:36:06.790+05:30 DEBUG 30012 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-11-25T17:36:06.960+05:30  INFO 30012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-11-25T17:36:06.980+05:30  INFO 30012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-11-25T17:36:06.989+05:30  INFO 30012 --- [restartedMain] com.ruh.bms.BmsApplication               : Started BmsApplication in 1.479 seconds (process running for 363.152)
+2025-11-25T17:36:06.992+05:30  INFO 30012 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-11-25T17:36:06.992+05:30  WARN 30012 --- [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2025-11-25T17:36:06.992+05:30  WARN 30012 --- [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
