@@ -186,7 +186,7 @@ public class ReservationServiceImpl implements ReservationService {
         Reservation reservation = reservationRepository.findByReservationCode(reservationCode)
                 .orElseThrow(() -> new ResourceNotFoundException("Reservation", "reservationCode", reservationCode));
 
-        if (reservation.getStatus() != Reservation.ReservationStatus.CONFIRMED) {
+        if (reservation.getStatus() != Reservation.ReservationStatus.CONFIRMED || reservation.getStatus() != Reservation.ReservationStatus.CHECKED_IN) {
             throw new BadRequestException("Reservation is not in confirmed status");
         }
 
