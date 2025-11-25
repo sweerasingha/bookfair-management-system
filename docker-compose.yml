@@ -20,6 +20,34 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+  # Spring Boot Application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bookfair-app
+    environment:
+      SERVER_PORT: 8090
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/bookfair_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: root
+      APP_JWT_SECRET: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      APP_JWT_EXPIRATION_MS: 86400000
+      SPRING_MAIL_HOST: sandbox.smtp.mailtrap.io
+      SPRING_MAIL_PORT: 2525
+      SPRING_MAIL_USERNAME: 6c661e4404a987
+      SPRING_MAIL_PASSWORD: 319e5e70ac42b6
+      APP_MAIL_FROM: noreply@colombobookfair.lk
+    ports:
+      - "8090:8090"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - bookfair-network
+    restart: unless-stopped
+
+
 
   db:
     image: postgres:latest
