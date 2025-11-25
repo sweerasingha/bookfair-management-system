@@ -29,5 +29,8 @@ public interface ReservationService {
     void checkInReservation(String reservationCode);
 
     @Transactional
+    byte[] generateQRCodeImage(Long reservationId, Long userId);
+
+    @Transactional
     ReservationResponse updateReservationGenres(Long reservationId, Long userId, List<Long> genreIds);
 }

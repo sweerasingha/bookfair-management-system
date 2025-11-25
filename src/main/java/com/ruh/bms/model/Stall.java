@@ -34,6 +34,11 @@ public class Stall {
     @Column(nullable = false)
     private String stallNumber;
 
+    @NotBlank
+    @Size(max = 50)
+    @Column(nullable = false)
+    private String hallNumber;
+    
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "event_id", nullable = false)

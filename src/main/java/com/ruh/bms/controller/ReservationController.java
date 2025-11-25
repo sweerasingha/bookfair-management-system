@@ -8,7 +8,9 @@ import com.ruh.bms.security.UserPrincipal;
 import com.ruh.bms.service.ReservationService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -42,6 +44,7 @@ public class ReservationController {
                 new ApiResponse(true, "Reservations retrieved successfully", reservations)
         );
     }
+
     @GetMapping("/event/{eventId}")
     @PreAuthorize("hasAnyRole('ORGANIZER')")
     public ResponseEntity<ApiResponse> getEventReservations(@PathVariable Long eventId) {
@@ -50,6 +53,7 @@ public class ReservationController {
                 new ApiResponse(true, "Event reservations retrieved successfully", reservations)
         );
     }
+
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse> getReservationById(@PathVariable Long id) {
         ReservationResponse reservation = reservationService.getReservationById(id);
@@ -65,6 +69,7 @@ public class ReservationController {
                 new ApiResponse(true, "Reservation retrieved successfully", reservation)
         );
     }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<ApiResponse> cancelReservation(
             @PathVariable Long id,
@@ -87,6 +92,7 @@ public class ReservationController {
                 new ApiResponse(true, "Genres updated successfully", reservation)
         );
     }
+
     @PostMapping("/check-in")
     @PreAuthorize("hasAnyRole('ORGANIZER')")
     public ResponseEntity<ApiResponse> checkInReservation(@RequestParam String reservationCode) {
@@ -95,5 +101,17 @@ public class ReservationController {
                 new ApiResponse(true, "Reservation checked in successfully")
         );
     }
-}
 
+    @GetMapping("/{id}/qr-code")
+    public ResponseEntity<byte[]> downloadQRCode(
+            @PathVariable Long id,
+            @AuthenticationPrincipal UserPrincipal currentUser) {
+        byte[] qrCodeImage = reservationService.generateQRCodeImage(id, currentUser.getId());
+        
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.IMAGE_PNG);
+        headers.setContentDispositionFormData("attachment", "reservation-qr-code-" + id + ".png");
+        
+        return new ResponseEntity<>(qrCodeImage, headers, HttpStatus.OK);
+    }
+}

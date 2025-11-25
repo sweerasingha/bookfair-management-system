@@ -232,6 +232,31 @@ public class ReservationServiceImpl implements ReservationService {
         return mapToResponse(reservation);
     }
 
+    @Transactional(readOnly = true)
+    public byte[] generateQRCodeImage(Long reservationId, Long userId) {
+        // Fetch reservation
+        Reservation reservation = reservationRepository.findById(reservationId)
+                .orElseThrow(() -> new ResourceNotFoundException("Reservation", "id", reservationId));
+
+        // Check if user owns the reservation
+        if (!reservation.getUser().getId().equals(userId)) {
+            throw new BadRequestException("You are not authorized to access this reservation");
+        }
+
+        // Check if reservation is active
+        if (reservation.getStatus() == Reservation.ReservationStatus.CANCELLED) {
+            throw new BadRequestException("Cannot generate QR code for a cancelled reservation");
+        }
+
+        try {
+            // Generate QR code as PNG bytes
+            return qrCodeGenerator.generateQRCodeBytes(reservation.getReservationCode());
+        } catch (WriterException | IOException e) {
+            log.error("Failed to generate QR code image for reservation: {}", reservation.getReservationCode(), e);
+            throw new BadRequestException("Failed to generate QR code: " + e.getMessage());
+        }
+    }
+
     private ReservationResponse mapToResponse(Reservation reservation) {
         Set<String> genreNames = reservation.getGenres().stream()
                 .map(Genre::getName)
@@ -248,6 +273,7 @@ public class ReservationServiceImpl implements ReservationService {
                 .eventName(reservation.getEvent().getName())
                 .stallId(reservation.getStall().getId())
                 .stallNumber(reservation.getStall().getStallNumber())
+                .hallNumber(reservation.getStall().getHallNumber())
                 .genres(genreNames)
                 .createdAt(reservation.getCreatedAt())
                 .confirmedAt(reservation.getConfirmedAt())

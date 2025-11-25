@@ -24,6 +24,7 @@ public class ReservationResponse {
     private String eventName;
     private Long stallId;
     private String stallNumber;
+    private String hallNumber;
     private Set<String> genres;
     private LocalDateTime createdAt;
     private LocalDateTime confirmedAt;

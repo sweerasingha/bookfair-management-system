@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+        .content {
+            background-color: #f4f4f4;
+            padding: 30px;
+            border-radius: 0 0 5px 5px;
+        }
+        .info-box {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #555;
+        }
+        .qr-code {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .qr-code img {
+            max-width: 300px;
+            border: 2px solid #2c3e50;
+            padding: 10px;
+            background: white;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #777;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Reservation Confirmed!</h1>
+        <p>Colombo International Bookfair</p>
+    </div>
+    
+    <div class="content">
+        <p>Dear <span th:text="${userName}">User</span>,</p>
+        
+        <p>Your stall reservation has been successfully confirmed! We're excited to have you at the Colombo International Bookfair.</p>
+        
+        <div class="info-box">
+            <h3>Reservation Details</h3>
+            <div class="info-row">
+                <span class="info-label">Reservation Code:</span>
+                <span th:text="${reservationCode}">RES-12345</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Event:</span>
+                <span th:text="${eventName}">Colombo Bookfair 2025</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Stall Number:</span>
+                <span th:text="${stallNumber}">A-101</span>
+            </div>
+        </div>
+        
+        <div class="qr-code">
+            <h3>Your Entry Pass</h3>
+            <p>Please present this QR code at the event entrance:</p>
+            <img th:src="'data:image/png;base64,' + ${qrCode}" alt="QR Code" />
+        </div>
+        
+        <div class="info-box">
+            <h3>Important Information</h3>
+            <ul>
+                <li>Please arrive at least 30 minutes before the event starts</li>
+                <li>Show this QR code at the entrance for check-in</li>
+                <li>Keep this email for your records</li>
+                <li>Contact us if you have any questions or need to make changes</li>
+            </ul>
+        </div>
+        
+        <p>We look forward to seeing you at the event!</p>
+        
+        <p>Best regards,<br>
+        <strong>Colombo Bookfair Organizing Team</strong></p>
+    </div>
+    
+    <div class="footer">
+        <p>This is an automated email. Please do not reply to this message.</p>
+        <p>&copy; 2025 Colombo International Bookfair. All rights reserved.</p>
+    </div>
+</body>
+</html>
