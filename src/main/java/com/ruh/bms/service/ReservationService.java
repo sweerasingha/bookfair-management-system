@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 public interface ReservationService {
+
     @Transactional
     ReservationResponse createReservation(Long userId, ReservationRequest request);
 
@@ -30,4 +31,7 @@ public interface ReservationService {
 
     @Transactional
     ReservationResponse updateReservationGenres(Long reservationId, Long userId, List<Long> genreIds);
+
+    @Transactional(readOnly = true)
+    byte[] generateQRCodeImage(Long reservationId, Long userId);
 }
