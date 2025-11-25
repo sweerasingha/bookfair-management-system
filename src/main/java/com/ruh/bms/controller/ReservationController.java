@@ -94,7 +94,7 @@ public class ReservationController {
     }
 
     @PostMapping("/check-in")
-    @PreAuthorize("hasAnyRole('ORGANIZER')")
+    @PreAuthorize("hasAnyRole('ORGANIZER','EMPLOYEE')")
     public ResponseEntity<ApiResponse> checkInReservation(@RequestParam String reservationCode) {
         reservationService.checkInReservation(reservationCode);
         return ResponseEntity.ok(
