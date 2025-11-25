@@ -80,6 +80,7 @@ public class User {
     public enum UserRole {
         VENDOR,
         PUBLISHER,
-        ORGANIZER
+        ORGANIZER,
+        EMPLOYEE
     }
 }
